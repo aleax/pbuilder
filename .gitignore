@@ -1,0 +1,12 @@
+
+#tmp files
+*~
+build/*
+
+pbuilderrc
+
+sid-amd64/*
+squeeze/*
+squeeze-amd64/*
+*-base.tgz
+squeeze-i386/*
