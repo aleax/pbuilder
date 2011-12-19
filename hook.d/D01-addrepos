@@ -1,0 +1,201 @@
+#!/bin/bash
+
+SOURCESLISTD="/etc/apt/sources.list.d"
+PREFERENCESD="/etc/apt/preferences.d"
+
+add-apt-key()
+{
+    TMPFILE=`mktemp`
+    
+    case "$1" in
+        "C3D1D5BB" )
+            cat > "$TMPFILE" <<EOF
+-----BEGIN PGP PUBLIC KEY BLOCK-----
+Version: GnuPG v1.4.10 (GNU/Linux)
+
+mQINBExyW58BEACxy7Pswn/2fbguuzTnlDKlA2FzoXcjWzr7vq8TSH2l6Pdt/vHE
+7/1bxk5CgmX9UCqtsy1sUdj/bI11kcMDVy+MI5HD1ybsqzof4WyixZAWOKbNJdFW
+DwHGNqEfWmir+I82h5UjWTrFQDxGq/hELUsepnaOvLN6zEz1myTL2ig4ZZnBz3hF
+zGpohFoYeJMMtjxZN4+mg7xPV1LZPwFRcRb3pAzn34o4h4PFCSmQFyodR4nNNT+Z
+bXwfKivKACulfFuk6FD6IxdrfUE4I9Z0uw7SNCAOY4FB8L0wkiZ3yG8ZfAxL7f5v
+8cBDNOICM5L3IIUi4jZ3oNJ3OketN0XVOyad271BIbidUI0Qf/CnW98UocIXbhLK
+kG8xt/jZZt6SjXbc+iWsyucpNwTCQQqHcvUWMzwNvjx7RQZNrkvz6zwb1uUwX/s4
+Cs/XLmYcoIm6btyv818fZrAKIp+Jfhj1+wLh4i/qb1uY/RWxVojXclVD2fHPO+Uu
+HD35EVsT/kRdXNq+HJm5QmmGJ4erM/mspWDH7j3d16QuSKIVMnG5RnsJr1U7iRsc
+Ma6dIpkVY6Jrk9mQ0mKeE5Py/As8FNKBHhBoCalUeua8f7tMfRlEPQ9w/lNVpE0T
+olwV2lnScREIG3/GL7P1IxmfGt/KI1dgwW8s333j87/1g9xRmR7nkKMfqwARAQAB
+tCZBbGV4ZXkgQm9uZGFyY2h1ayA8YWxlYXgudWFAZ21haWwuY29tPokCPgQTAQIA
+KAUCTHJbnwIbAwUJCWYBgAYLCQgHAwIGFQgCCQoLBBYCAwECHgECF4AACgkQt2z3
+BsPR1btSBA//bXAtRjjX3DTxiNTGhGEF9famTuGSEmClVMRoCvS6pZUakhqVdlHG
+r7lmNHzS9giHKr3ydnTRJZ0Oijm8BInWswtvS8wSYKhgiAZIN7ljntwbZwSAUKse
+HWUk7Kd826JhTwAsUXVCKUwnrw0stMqf2Z8gt5ftXSd79lBZqvfeWcTAjnzqAlL6
+Tl6N/a6Cj3hCIwVu1l6uXrq3BGC+58imqolOMlv2qZZ/DdVdQV8jTRTIKk2K9EQu
+wgRdM1paRgUrnv6sDWzs0oU1z5gk2SDI0bkTVz3J/7zFL8Nbe5WQ8TRpsyAAPokF
+TXUPmfKSoMwYnLBFxF2hzZBmg/kIRhXQYHKYU10NYF+wilSCotxCAV4udny/7J5W
+px6BHF08IQNQkdECe+uToIMBLwBh2MDdaLsHXBmiMmdwnHZKfLz5MdWjDNdFndv4
+S6ykYgsr/ELeq0Qd8sH2UGv1d5+ym9IVWplE/P+7AYTU8CB/b8Pm6LS0k2VsGVQP
+/MRtUSn3lwMf6AlHFJMWdg5RAEg9oYktB/c8i4fR8LQSpZ48fDgWwT13o6/nHt0s
+m2ZR9AgmRF9T0qAbuPCR4UVLptJQnbM9+BmS2EOdCMrO2J8WdK+urp7C/3x7gPZJ
+2keId2iWLjUbUxu2/0vMa3jofWxqaIX8d8I7NJdljSzXtPUnX7EeiAa0LkFsZXhl
+eSBCb25kYXJjaHVrIDxhbGV4ZXkuYm9uZGFyY2h1a0BhbGVheC5tZT6JAj4EEwEC
+ACgFAkxyi7ICGwMFCQlmAYAGCwkIBwMCBhUIAgkKCwQWAgMBAh4BAheAAAoJELds
+9wbD0dW7uLMP/iggiouJQbxfZrBx6oKpJQj83bSW35V3BW43+caB5AkhkhpT1ZE/
+3cezXjsKKgrMFlIWLjOl7AqZqWDj2E4aFwIOpLlV0Tv2vQ9JzVg0x9Zh15OzsmXA
+nq4na59BODbdpOwDrJwoS1coICBPEtKBFbsLT/Mrw3LBoJtbbSP1JNbB2Y9waILW
+5gdYki1YeQDNh4z8HW1+SBCydFfccOyqjA774CwlRYlm0bSMWMNgpwRLgCgGuATy
+xOey1ytYBB0t2cPqfZSIrQgn9QkheA5TrtBLrAWuN4DIgWkhU44Myhty1TFmSZAO
+Pzc+x1cR7fwu3JvGmhPLhZEP+etuf7R7ufyb9sui2ABopEt64EVS3OREzen7E1ap
+Vsb8yHqFZH6LxBzi2x749TGxbAy6rnnXPbSVhSyDHwTaQxhUPzUNjNMhwGZTYHM4
+DfE3tsopaM9ifZyETXwmfllKsr1pmNfUFUyuigrK+UXqJfNTAItBa6TJLTveuhqT
+hfWal67AstbKb7mw7m9FOtX9U7pevitQ/LF4xZamnwvqBHkZnH6K9Nu/xKgV/+M3
+Ta4TgrrtjJLE5IASyf4dIBprlXfZXRXIYS6r4tcCegy5yJqX6R6snbq+jCcADM4r
+3Pp4KO6jd5XYX7yrEFkydR80g6/06ILXLk9HUQlosFUBkEBabaUYY/0IuQINBExy
+W58BEADZpW7YzrOJT4fUzLljXFIHeG3h2bvEtjGeY1l1LmtNJxlPdKZPjkap9+MZ
+f1iN7OncLNWBiJy6xwYqchZRbljdW7UgJfvGesh3NPadsJk27cW9MZ/OPQpZWQKH
+y4EItiL+Y6s79pliBTa1hYpJ2lCnX3vvH7hbyQMVTbCPSrNqsnMQ6ttz0LQwxTuZ
+qV5HMG3lCQfpzA2dC8Wef9XGPF6mfLwOdTBYByMKJ5G1MNLlwuBsoZuWwKzSyb7z
+z0t3lud4cASBDcXeANsQmqgIx5BfRUswmDpMiXWXLRn+CgvrbwILYVQDLN+5zwIg
+i+VVuhyTzG+4fibW6c90eozxRx4qhW5HDegTI6zuMsADIAYh/PCIOBEO8sK4G3Yc
+OnDcBO1ocJ+qCxEfS7H4gWJS6Jq9J8bzoIw6Wmrs5/itYouOrFuq8/KfA3fT00Kd
+g7z7EnsU4WDxt/pDg1x0ajUm7o10S3YT5pEVJXmqQzKA04JUYr8yuM+VFeVUTjVm
+Hx8HfmtgNCo8oNIyDgw8ru/znYHjClbvGZu/E+gspWf3RbZjspeM8KISz70CMDiF
+q5ELwnaOYtinqzapQhfT9zGqmUAyNhFcLAJjmyMZ5gYr3X4wci8jQhgdPPKoUvdV
+ZMw8NnaCsxc4UChDdHKiHNUXfn/4LpIDelhesfb4IxysCwduMwARAQABiQIlBBgB
+AgAPBQJMclufAhsMBQkJZgGAAAoJELds9wbD0dW7CocP/0YWvqEQs2HfJn8jAQdG
+OsoPQdeURf7j70/r5LSBBSb8OOj37ZYA5c/MkNOW5To0zWzSUs/kCD8pNeAaHBzQ
+urNyw+zeSBvah29pbYpDxwMxTKeu02k5dJlaMdvw/gHAlXSB5m0p1ivYEjuAH6ym
+p0TjyYxNqIysOOKXB4ecc0eIaoUOyO4wwrgNXRoA5dT7qXTKkF80cBRpQspVVfiv
+uaL+T1942c842+WU3s+6ZOV7gHJGj3j0iYgIl/vPt1Y23t4Rtcf1gCiHCauHfCVj
+tPZGOmFhi1hBupKSn8Rutli4DkzirA8jAg37A3sz5k1olqoFbtGXdgrO5OZ+MbhJ
+5tU8dN/ZnKuZGTpLtLUuqB7E6h8+HBg8Uns06+otKRSl8ilM6W102y1meUd9hHKN
+Krsizsp67hcr496lBgbKJ8dHG0Fwpx+ZfUB5BQA6Us8G6sLhi7Su2amwoq8t7ucU
+Sx1U3YpUYy6t2GsDUaYA0ZeUEatD57KyANT/geVvSRQc4QiSQygspz0LvTZvfIUf
+ekMg3GBLhF5smZAPwEx5MKrpMtDYDrLmhZr3bSqfu1h0JcMVyJqwIW+PzI2yjPS9
+lv5eYvZJRsaFcS9mthKsonjqHdi0KnWT5x5RAEjc0S2A0x0HmjfoY/oR/KoR2z9D
+FDeqD2taZ/VAzKO2CXMh5yzY
+=x2rG
+-----END PGP PUBLIC KEY BLOCK-----
+EOF
+        ;;
+    "1AE39862")
+        cat > "$TMPFILE" <<EOF
+-----BEGIN PGP PUBLIC KEY BLOCK-----
+Version: GnuPG v1.4.10 (GNU/Linux)
+
+mQINBE4uRz0BEADZ0GiofZ5Nykc/Ah1FPr3MuOQZXpr6OmdW6nEIA4+gU+xHvq7Q
+aafp/L5/SD2Zj/bIgUt6MqFHG8EEUpw7rl1h7/Mdlv9i1f5/VsrS/pjwS9LvuvjO
+5UKryUMMtpJGGRa6/5Eht3iGsmyEJoANC3Y+N1obASlp6fw2HfZuiw1LMOK4oVOS
+7cUVelPWRcxFJFjkFeFUA/xn09IjG3J/dOrk8ZoLc0vm334BhVoG53sTbBQucyBL
+lwBgnr91ovCXX7Add8ToQkiZU+xo85uZJP/w6kQf+6b5/6YRjJ1yhOE81t3lu1Ww
+ZHniI++Nby/YlIwxTpzmyBepAccNNWzdUukggZQxOcVhRf17EZMJyJlTRMfrsGSU
+aXJmwoh7ub2Z2z0xKkY051gnsY7D1kE1zBZ4H2KzkLf6bjihSWUpnHnLIg3EN8XQ
+to9DLGqdSroIO48B/dngMUmY2TnQ4cIzH0oil1O4wCp8NaZOK5D904nekWXGLrNI
+faOa6c7vR25GWH8LYN47sGrL9EqSKPc+w1d+HprZzbqNE/SVBO3eLhxFovulkdb9
+4OgOas+luASvcvmank2zNggATJJ+oOfUKVKV0JF77mIxAWB8bUayHQ2uiQb5GtSb
+IqNshF9PnpE0xE1kKOXQa4V6DN50LawXUIGmcIlP+zS274dYuAOmAJsUIwARAQAB
+tCdNYXJ0aW4gQWxma2UgPG1hcnRpbi5hbGZrZUBidWVybzIwLm9yZz6JAjgEEwEC
+ACIFAk4uRz0CGwMGCwkIBwMCBhUIAgkKCwQWAgMBAh4BAheAAAoJENBxIkYa45hi
+pz8QAKlAAvMd8vgozrpvFDejz2NiFwp/sKL665pBPgMTbh7s7ZzT+xl5QXE3CuRF
+35H/M2DlAuqVajyjAHx3qbXioufE5Imcr5zg7s8xmIWXQ71tEf6TGzHlhZo/Da00
+rbYoACG3pIfVb9krWv0PwLNdzQ/FC/HvDscLWtyTSH4xQGvDTJvZLif56RS4pn00
+vQd+bl2BWkIkzToehYdeD1/+hPYdkxWXFxfw7fgRiOZvBdQFP1jjOt9Zg3yCUHyQ
+ltDLEbZOg+PxANnKgwzfRuPFapSXtRAXKLVIyd5H3javvrE9ikGKqX4WyxMzndlt
+iPgDGFkLSoCwd7iRutlG3ak4AXt0ICl+nNCZZap64w4Qqxlh5j76wUeXxTy3JXTs
+VRZaNKL348K2SKMMfC3+U0UcveC2AA79pfmg1JyYLVC/x6ZH1EYd/pADu147vPon
+fEpkrMqX1YzWMljHE63x3Gmc4fsMzn4eW5ybBREvnUA59F5AXImVHns7UM2PjWlB
+4hOKdW4ngCnA+ElfkKqh1CiIwRtnrZ/vJ07qnQeDtEqp4dDQyycF7YT14Z31EYQV
+cfmAf4NA4Vu6N+1yEFK8YLRAc1J0kRA41ki6rwapScNqG20klSno6yDTmtUPBD68
+rcnuepK09jxWgQ7R/DCaqA7Ut0XvGj9FoJwl+ZVGS7Am+NF/uQINBE4uRz0BEADe
+qNix1kixTuwfQaM8JHj6iNZ1vUvzVJkuQHb6AeFW/mZ6NNzovrJQPP5FANfaw8+u
+cCmnRc1wTDVHKUxx/u5MP+440EWPmzaz90iRsXbjk1LqFAkRiL4v9DDew6kspzew
+dNjPoc+MknZOtEU9iNP21/sw4ax5tQGLhHI3LZu6Bv7MdOKE2amS39AtJI8PhlAf
+VXOaJWKJzT54Vo0Q07y6QZktWCq5ko+dWOtf2z//m1YQZRKJTQhyzCPwAmu5h0vH
+kSCaeWUUXKw3+fTEPSCnb8duUtVUcZgqWGO2lVP2Z+2RD8y5dzZSRg/wjYnRnBu6
+1z0Rhtc4+LAOUCoV1DTDItysocypCtN5vbodmVEd8sKEWrQhnUW5wgR7juIcGCgv
+5A9G/quRYZoH297DkzsfDhu3eRW1uUhMAfgs8iyzEJAXTQ8sox9JUcXLM0gw90W4
+JfYiMUyFYjsrzItB1chmKOutFi+1q+dplF4U5IMymuVx5vSKbLVNT1stAeNL5fhw
+JiHS3zKM5DfPH5LY25Me7VkomMvA0yjyD4/DQ+wHd31i4q2DHG/GPGzO8C3pmp1m
+gBi1j662vMkP/KcKY/zZ8h4YfKoBIVFtp6I5ikkUXS5NgBC/fAjpGhUOKgzv1cE0
+tAmClnKvRE2RDraisHgwOjs79+jwU496OENQX4VroQARAQABiQIfBBgBAgAJBQJO
+Lkc9AhsMAAoJENBxIkYa45his+MQAJpxPKdZfNHlLGv1cM50BUv0Ys7LyBlCMoy3
+Ubbhx6f/lvQTpCuaerms23Ogh1WPNqpqBD2OEU4FdvxiQwz32gaNtdY6cJFyFabe
+oOpptsH8Ap8XKtBBjjIvGqPeDEhzIfkcWSJH+N217EVFrJvYMM/pS+X5CLUaYCO9
+kN/MF5jLSiuRNBSflRNkWgp5lAmpsaTeXxbV6ZSIt3HvE2Tl2Gy9wlM1GEGPXeqw
+iR10WfKCxfaPCuZQgoHRTmmsG3PfdxfCPkJHtwGhKA/4ISIzvpqNGk574IW6LpMg
+o+AdI+E0UtJcSwpL2IzbV2sx7YbVYYdKKbJKwZBBM6fzJ/pxTWYZqa5DC/bRmiDn
+6Q5QHsotO58Ef9p0TOaGIm8i6iZAja8qPYf226a39jKmSQNXr5mSqlpb/W7ci6/g
+aWWONat22gfZiIz7294la53cAvLXZfB0YAsbV5Q+5YBQ1A5jQbXeA8PXODqtY9+N
+2Sfej9dgD9B1pd2/ijjpw/1CD6/o+bKd5VOVl1em1Hs4PdJXV0ceSOoloIvEwdzn
+if/egx0UdSX/kdNfpLg1E8OLZzaobAARkFhcbvUQkWj030bOE2ufyF6KZTEJQizX
+wtlAKPyvQRwoUSFVP7k4O0AisjRUruSIWxaFAARtCCXkhUrblhFd90bJOX0KkTlq
+uE+Chajc
+=WhUz
+-----END PGP PUBLIC KEY BLOCK-----
+EOF
+        ;;
+    esac
+
+    apt-key add $TMPFILE
+    rm $TMPFILE
+}
+
+
+
+if [ -n "${ADDREPOS}" ];
+then
+    echo "Handle ADDREPOS string \"${ADDREPOS}\":"
+
+    if [ ! -d "$SOURCESLISTD" ];
+    then
+            mkdir -p $SOURCESLISTD
+    fi
+
+    if [ ! -d "$PREFERENCESD" ];
+    then
+            mkdir -p $PREFERENCESD
+    fi
+
+    if [[ ${ADDREPOS} =~ .*moo.* ]]
+    then
+        aptitude moo
+    fi
+
+    if [[ ${ADDREPOS} =~ .*bpo60.* ]]
+    then
+        echo "Adding beckports repository..."
+        echo "deb http://ftp.ua.debian.org/debian-backports/ squeeze-backports main non-free contrib" \
+            > "${SOURCESLISTD}/backports.list"
+#        cat > "${PREFERENCESD}/backports.pref" <<EOF
+#Package: *
+#Pin: release a=stable-backports
+#Pin-Priority: 700 
+#EOF
+    fi
+
+    if [[ ${ADDREPOS} =~ .*localrepo.* ]]
+    then
+        echo "Adding localrepo repository..."
+        echo "deb http://localhost/localrepo/ stable-backports main contrib non-free" \
+            > "${SOURCESLISTD}/localrepo.list"
+        add-apt-key C3D1D5BB
+    fi
+
+    if [[ ${ADDREPOS} =~ .*kde46.* ]]
+    then
+        echo "Adding kde46 repository..."
+        echo "deb http://www.debian-desktop.org/pub/linux/debian/kde46-squeeze debian-desktop main" \
+            > "${SOURCESLISTD}/kde46.list"
+        add-apt-key 1AE39862
+    fi
+
+    if [[ ${ADDREPOS} =~ .*dev-tools.* ]]
+    then
+        echo "Adding dev-tools repository..."
+        echo "deb file:///media/multimedia/deb/repos/ dev-tools-squeeze-backports main" \
+            > "${SOURCESLISTD}/dev-tools.list"
+        add-apt-key 1AE39862
+    fi
+fi
+
+
+

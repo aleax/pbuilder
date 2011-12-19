@@ -1,0 +1,8 @@
+#!/bin/sh
+
+apt-get update
+
+apt-cache policy
+
+aptitude safe-upgrade -y
+
