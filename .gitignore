@@ -1,12 +1,17 @@
 
 #tmp files
 *~
+
+#builddir
 build/*
 
-pbuilderrc
-
+#binary data
 sid-amd64/*
 squeeze/*
 squeeze-amd64/*
 *-base.tgz
 squeeze-i386/*
+
+#hooks symlinks
+hook.d/*.sym
+

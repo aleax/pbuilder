@@ -1,0 +1,6 @@
+###
+# ls -lR | egrep "^l" | awk '{printf "%s -> %s\n", $9, $11}'
+###
+
+C10shell.sym -> /usr/share/doc/pbuilder/examples/C10shell*
+D80no-man-db-rebuild.sym -> /usr/share/doc/pbuilder/examples/D80no-man-db-rebuild*
