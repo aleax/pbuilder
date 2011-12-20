@@ -13,7 +13,7 @@ DEBIAN_SUITES=($UNSTABLE_CODENAME $TESTING_CODENAME $STABLE_CODENAME
 UBUNTU_SUITES=("natty" "maverick" "lucid" "karmic" "jaunty" "hardy")
 
 # Mirrors to use. Update these to your preferred mirror.
-DEBIAN_MIRROR="ftp.ua.debian.org"
+DEBIAN_MIRROR="ftp2.debian.org.ua"
 UBUNTU_MIRROR="ftp.ubuntu.com"
 
 # Optionally use the changelog of a package to determine the suite to use if
