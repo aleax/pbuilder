@@ -12,6 +12,9 @@ squeeze-amd64/*
 *-base.tgz
 squeeze-i386/*
 
+#ccache
+ccache/*
+
 #hooks symlinks
 hook.d/*.sym
 
