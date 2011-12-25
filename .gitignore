@@ -5,6 +5,9 @@
 #builddir
 build/*
 
+#repos
+repos
+
 #binary data
 sid-amd64/*
 squeeze/*
