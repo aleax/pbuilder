@@ -172,11 +172,11 @@ then
 #EOF
     fi
 
-    if [[ ${ADDREPOS} =~ .*localrepo.* ]]
+    if [[ ${ADDREPOS} =~ .*local-bpo60.* ]]
     then
         echo "Adding localrepo repository..."
-        echo "deb http://localhost/localrepo/ stable-backports main contrib non-free" \
-            > "${SOURCESLISTD}/localrepo.list"
+        echo "deb file:///var/cache/pbuilder/repos/ squeeze-backports main contrib non-free" \
+            > "${SOURCESLISTD}/local-bpo60.list"
         add-apt-key C3D1D5BB
     fi
 
@@ -191,7 +191,7 @@ then
     if [[ ${ADDREPOS} =~ .*dev-tools.* ]]
     then
         echo "Adding dev-tools repository..."
-        echo "deb file:///media/multimedia/deb/repos/ dev-tools-squeeze-backports main" \
+        echo "deb file:///var/cache/pbuilder/repos/ squeeze-backports dev-tools" \
             > "${SOURCESLISTD}/dev-tools.list"
         add-apt-key 1AE39862
     fi
