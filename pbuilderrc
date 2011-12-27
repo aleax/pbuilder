@@ -84,5 +84,5 @@ export CCACHE_DIR="/var/cache/pbuilder/ccache"
 EXTRAPACKAGES=ccache
 BINDMOUNTS="${CCACHE_DIR}"
 
-BINDMOUNTS="${BINDMOUNTS} /media/multimedia/deb/repos"
+BINDMOUNTS="${BINDMOUNTS} /var/cache/pbuilder/repos/"
 
