@@ -163,13 +163,13 @@ then
     if [[ ${ADDREPOS} =~ .*bpo60.* ]]
     then
         echo "Adding beckports repository..."
-        echo "deb http://ftp.ua.debian.org/debian-backports/ squeeze-backports main non-free contrib" \
+        echo "deb http://ftp2.debian.org.ua/debian-backports/ squeeze-backports main non-free contrib" \
             > "${SOURCESLISTD}/backports.list"
-#        cat > "${PREFERENCESD}/backports.pref" <<EOF
-#Package: *
-#Pin: release a=stable-backports
-#Pin-Priority: 700 
-#EOF
+        cat > "${PREFERENCESD}/backports.pref" <<EOF
+Package: *
+Pin: release a=squeeze-backports
+Pin-Priority: 700 
+EOF
     fi
 
     if [[ ${ADDREPOS} =~ .*local-bpo60.* ]]
