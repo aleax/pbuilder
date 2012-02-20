@@ -193,9 +193,17 @@ EOF
         echo "Adding dev-tools repository..."
         echo "deb file:///var/cache/pbuilder/repos/ squeeze-backports dev-tools" \
             > "${SOURCESLISTD}/dev-tools.list"
-        add-apt-key 1AE39862
+        add-apt-key C3D1D5BB
     fi
 fi
 
+    if [[ ${ADDREPOS} =~ .*local-oscada.* ]]
+    then
+        echo "Adding localrepo repository..."
+        echo "deb file:///var/cache/pbuilder/repos/ squeeze openscada" \
+            > "${SOURCESLISTD}/local-oscada.list"
+        add-apt-key C3D1D5BB
+    fi
 
+ 
 
