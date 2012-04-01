@@ -180,6 +180,14 @@ EOF
         add-apt-key C3D1D5BB
     fi
 
+    if  $(echo ${ADDREPOS} | tr ' ' '\n' | grep -qs '^local60$')
+    then
+        echo "Adding local60 repository..."
+        echo "deb file:///var/cache/pbuilder/repos/ squeeze main contrib non-free" \
+            > "${SOURCESLISTD}/local60.list"
+        add-apt-key C3D1D5BB
+    fi
+
     if  $(echo ${ADDREPOS} | tr ' ' '\n' | grep -qs '^kde46$')
     then
         echo "Adding kde46 repository..."
