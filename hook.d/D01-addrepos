@@ -155,12 +155,12 @@ then
             mkdir -p $PREFERENCESD
     fi
 
-    if [[ ${ADDREPOS} =~ .*moo.* ]]
+    if $(echo ${ADDREPOS} | tr ' ' '\n' | grep -qs '^moo$')  
     then
         aptitude moo
     fi
 
-    if [[ ${ADDREPOS} =~ .*bpo60.* ]]
+    if  $(echo ${ADDREPOS} | tr ' ' '\n' | grep -qs '^bpo60$')
     then
         echo "Adding bpo60 repository..."
         echo "deb http://ftp2.debian.org.ua/debian-backports/ squeeze-backports main non-free contrib" \
@@ -172,7 +172,7 @@ Pin-Priority: 700
 EOF
     fi
 
-    if [[ ${ADDREPOS} =~ .*local-bpo60.* ]]
+    if  $(echo ${ADDREPOS} | tr ' ' '\n' | grep -qs '^local-bpo60$')
     then
         echo "Adding local-bpo60 repository..."
         echo "deb file:///var/cache/pbuilder/repos/ squeeze-backports main contrib non-free" \
@@ -180,7 +180,7 @@ EOF
         add-apt-key C3D1D5BB
     fi
 
-    if [[ ${ADDREPOS} =~ .*kde46.* ]]
+    if  $(echo ${ADDREPOS} | tr ' ' '\n' | grep -qs '^kde46$')
     then
         echo "Adding kde46 repository..."
         echo "deb http://www.debian-desktop.org/pub/linux/debian/kde46-squeeze debian-desktop main" \
@@ -188,7 +188,7 @@ EOF
         add-apt-key 1AE39862
     fi
 
-    if [[ ${ADDREPOS} =~ .*dev-tools.* ]]
+    if  $(echo ${ADDREPOS} | tr ' ' '\n' | grep -qs '^dev-tools$')
     then
         echo "Adding dev-tools repository..."
         echo "deb file:///var/cache/pbuilder/repos/ squeeze-backports dev-tools" \
@@ -197,7 +197,7 @@ EOF
     fi
 fi
 
-    if [[ ${ADDREPOS} =~ .*local-oscada.* ]]
+    if  $(echo ${ADDREPOS} | tr ' ' '\n' | grep -qs '^local-oscada$')
     then
         echo "Adding local-oscada repository..."
         echo "deb file:///var/cache/pbuilder/repos/ squeeze openscada" \
