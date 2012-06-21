@@ -203,15 +203,26 @@ EOF
             > "${SOURCESLISTD}/dev-tools.list"
         add-apt-key C3D1D5BB
     fi
-fi
-
-    if  $(echo ${ADDREPOS} | tr ' ' '\n' | grep -qs '^local-oscada$')
+  
+    if  $(echo ${ADDREPOS} | tr ' ' '\n' | grep -qs '^local-oscada60$')
     then
-        echo "Adding local-oscada repository..."
+        echo "Adding local-oscada60 repository..."
         echo "deb file:///var/cache/pbuilder/repos/ squeeze openscada" \
-            > "${SOURCESLISTD}/local-oscada.list"
+            > "${SOURCESLISTD}/local-oscada60.list"
         add-apt-key C3D1D5BB
     fi
+
+    if  $(echo ${ADDREPOS} | tr ' ' '\n' | grep -qs '^local-oscada-dev60$')
+    then
+        echo "Adding local-oscada-dev60 repository..."
+        echo "deb file:///var/cache/pbuilder/repos/ squeeze openscada-dev" \
+            > "${SOURCESLISTD}/local-oscada-dev60.list"
+        add-apt-key C3D1D5BB
+    fi
+
+fi
+
+
 
  
 
