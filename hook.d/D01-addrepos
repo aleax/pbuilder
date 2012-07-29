@@ -164,7 +164,7 @@ then
     then
         echo "Adding bpo60 repository..."
         #echo "deb http://ftp2.debian.org.ua/debian-backports/ squeeze-backports main non-free contrib" \
-        echo "deb http://backport.debian.org/debian-backports/ squeeze-backports main non-free contrib" \
+        echo "deb http://backports.debian.org/debian-backports/ squeeze-backports main non-free contrib" \
             > "${SOURCESLISTD}/backports.list"
         cat > "${PREFERENCESD}/backports.pref" <<EOF
 Package: *
