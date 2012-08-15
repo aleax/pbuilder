@@ -55,7 +55,7 @@ if [ -n "${ARCH}" ]; then
 fi
 BASETGZ="/home/aleax/pbuilder/$NAME-base.tgz"
 # Optionally, set BASEPATH (and not BASETGZ) if using cowbuilder
-# BASEPATH="/home/aleax/pbuilder/$NAME/base.cow/"
+BASEPATH="/home/aleax/pbuilder/$NAME/base.cow/"
 DISTRIBUTION="$DIST"
 BUILDRESULT="/home/aleax/pbuilder/$NAME/result/"
 APTCACHE="/home/aleax/pbuilder/$NAME/aptcache/"
