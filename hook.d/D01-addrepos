@@ -216,7 +216,7 @@ EOF
     if  $(echo ${ADDREPOS} | tr ' ' '\n' | grep -qs '^local-oscada-dev60$')
     then
         echo "Adding local-oscada-dev60 repository..."
-        echo "deb file:///var/cache/pbuilder/repos/ squeeze openscada-dev" \
+        echo "deb file:///var/cache/pbuilder/repos/ squeeze openscada-svn" \
             > "${SOURCESLISTD}/local-oscada-dev60.list"
         add-apt-key C3D1D5BB
     fi
