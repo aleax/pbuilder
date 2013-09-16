@@ -260,6 +260,14 @@ EOF
             > "${SOURCESLISTD}/local-squeeze-qt5.list"
         add-apt-key C3D1D5BB
     fi
+
+    if  $(echo ${ADDREPOS} | tr ' ' '\n' | grep -qs '^local-wheezy-qt5$')
+    then
+        echo "Adding local-wheezy-qt5 repository..."
+        echo "deb file:///var/cache/pbuilder/repos/ wheezy-qt5 main contrib non-free" \
+            > "${SOURCESLISTD}/local-wheezy-qt5.list"
+        add-apt-key C3D1D5BB
+    fi
 fi
 
 
