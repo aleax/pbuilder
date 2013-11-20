@@ -266,6 +266,11 @@ EOF
         echo "Adding local-wheezy-qt5 repository..."
         echo "deb file:///var/cache/pbuilder/repos/ wheezy-qt5 main contrib non-free" \
             > "${SOURCESLISTD}/local-wheezy-qt5.list"
+        cat > "${PREFERENCESD}/local-wheezy-qt5.pref" <<EOF
+Package: *
+Pin: release n=wheezy-qt5
+Pin-Priority: 700 
+EOF
         add-apt-key C3D1D5BB
     fi
 fi
