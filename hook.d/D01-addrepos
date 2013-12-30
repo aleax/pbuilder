@@ -173,6 +173,18 @@ Pin-Priority: 700
 EOF
     fi
 
+    if  $(echo ${ADDREPOS} | tr ' ' '\n' | grep -qs '^bpo70$')
+    then
+        echo "Adding bpo70 repository..."
+        echo "deb http://http.debian.net/debian wheezy-backports main contrib non-free" \
+            > "${SOURCESLISTD}/backports.list"
+        cat > "${PREFERENCESD}/backports.pref" <<EOF
+Package: *
+Pin: release n=wheezy-backports
+Pin-Priority: 700 
+EOF
+    fi
+    
     if  $(echo ${ADDREPOS} | tr ' ' '\n' | grep -qs '^local-bpo60$')
     then
         echo "Adding local-bpo60 repository..."
