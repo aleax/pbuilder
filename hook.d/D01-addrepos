@@ -249,7 +249,15 @@ EOF
         add-apt-key C3D1D5BB
     fi
 
-     if  $(echo ${ADDREPOS} | tr ' ' '\n' | grep -qs '^local-bpo70$')
+    if  $(echo ${ADDREPOS} | tr ' ' '\n' | grep -qs '^local-oscada-dev14.04$')
+    then
+        echo "Adding local-oscada-dev70 repository..."
+        echo "deb file:///var/cache/pbuilder/repos/ openscada-lts-svn-trusty main contrib non-free" \
+            > "${SOURCESLISTD}/local-oscada-dev14.04.list"
+        add-apt-key C3D1D5BB
+    fi
+
+    if  $(echo ${ADDREPOS} | tr ' ' '\n' | grep -qs '^local-bpo70$')
     then
         echo "Adding local-bpo70 repository..."
         echo "deb file:///var/cache/pbuilder/repos/ wheezy-backports main contrib non-free" \
