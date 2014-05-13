@@ -16,6 +16,8 @@ squeeze-amd64/*
 squeeze-i386/*
 wheezy-i386/*
 wheezy-amd64/*
+saucy-i386/*
+saucy-amd64/*
 trusty-i386/*
 trusty-amd64/*
 
