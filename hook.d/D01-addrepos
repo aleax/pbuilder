@@ -243,7 +243,7 @@ EOF
 
     if  $(echo ${ADDREPOS} | tr ' ' '\n' | grep -qs '^local-oscada-dev13.10$')
     then
-        echo "Adding local-oscada-dev70 repository..."
+        echo "Adding local-oscada-dev13.10 repository..."
         echo "deb file:///var/cache/pbuilder/repos/ openscada-lts-svn-saucy main contrib non-free" \
             > "${SOURCESLISTD}/local-oscada-dev13.10.list"
         add-apt-key C3D1D5BB
@@ -251,7 +251,7 @@ EOF
 
     if  $(echo ${ADDREPOS} | tr ' ' '\n' | grep -qs '^local-oscada-dev14.04$')
     then
-        echo "Adding local-oscada-dev70 repository..."
+        echo "Adding local-oscada-dev14.04 repository..."
         echo "deb file:///var/cache/pbuilder/repos/ openscada-lts-svn-trusty main contrib non-free" \
             > "${SOURCESLISTD}/local-oscada-dev14.04.list"
         add-apt-key C3D1D5BB
