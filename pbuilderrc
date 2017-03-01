@@ -53,6 +53,8 @@ if [ -n "${ARCH}" ]; then
     NAME="$NAME-$ARCH"
     DEBOOTSTRAPOPTS=("--arch" "$ARCH" "${DEBOOTSTRAPOPTS[@]}")
 fi
+
+COMPRESSPROG=pigz
 BASETGZ="/home/aleax/pbuilder/$NAME-base.tgz"
 # Optionally, set BASEPATH (and not BASETGZ) if using cowbuilder
 BASEPATH="/home/aleax/pbuilder/$NAME/base.cow/"
@@ -92,8 +94,8 @@ HOOKDIR="/home/aleax/pbuilder/hook.d/"
 export CCACHE_DIR="/var/cache/pbuilder/ccache"
 export PATH="/usr/lib/ccache:${PATH}"
 
-EXTRAPACKAGES=ccache
+EXTRAPACKAGES="ccache-" #ccache need "-" (minus) for hold 
 BINDMOUNTS="${CCACHE_DIR}"
 
-BINDMOUNTS="${BINDMOUNTS} /var/cache/pbuilder/repos/"
+BINDMOUNTS="${BINDMOUNTS} /home/aleax/Dropbox/Public/repos/"
 
