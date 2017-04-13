@@ -2,12 +2,13 @@
 
 set -x
 
-apt update
+apt-get update
 
 apt-cache policy
 
 apt list --upgradable
 
-apt full-upgrade
+#apt full-upgrade
+apt-get dist-upgrade -y --force-yes 
 
 set +x
