@@ -1,8 +1,14 @@
 #!/bin/sh
 
+set -x
+
 apt-get update
 
 apt-cache policy
 
-aptitude safe-upgrade -y
+apt list --upgradable
 
+#apt full-upgrade
+apt-get dist-upgrade -y --force-yes 
+
+set +x

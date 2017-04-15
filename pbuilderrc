@@ -1,19 +1,22 @@
 # Codenames for Debian suites according to their alias. Update these when
 # needed.
-UNSTABLE_CODENAME="sid"
-TESTING_CODENAME="wheezy"
-STABLE_CODENAME="squeeze"
-STABLE_BACKPORTS_SUITE="$STABLE_CODENAME-backports"
+#UNSTABLE_CODENAME="sid"
+#TESTING_CODENAME="wheezy"
+#STABLE_CODENAME="squeeze"
+#STABLE_BACKPORTS_SUITE="$STABLE_CODENAME-backports"
 
 # List of Debian suites.
-DEBIAN_SUITES=($UNSTABLE_CODENAME $TESTING_CODENAME $STABLE_CODENAME
-    "unstable" "testing" "stable")
+#DEBIAN_SUITES=($UNSTABLE_CODENAME $TESTING_CODENAME $STABLE_CODENAME
+#    "unstable" "testing" "stable")
+DEBIAN_SUITES_ARCHIVE=("squeeze")
+DEBIAN_SUITES=("wheezy")
 
 # List of Ubuntu suites. Update these when needed.
-UBUNTU_SUITES=("maverick" "lucid" "karmic" "jaunty" "hardy" "natty" "oneiric" "precise" "quantal" "raring" "saucy" "trusty")
+UBUNTU_SUITES=("maverick" "lucid" "karmic" "jaunty" "hardy" "natty" "oneiric" "precise" "quantal" "raring" "saucy" "trusty" "wily" "xenial")
 
 # Mirrors to use. Update these to your preferred mirror.
 DEBIAN_MIRROR="http.debian.net"
+DEBIAN_MIRROR_ARCHIVE="archive.debian.org"
 UBUNTU_MIRROR="ua.archive.ubuntu.com"
 
 # Optionally use the changelog of a package to determine the suite to use if
@@ -48,20 +51,13 @@ esac
 # that you can set your own default (i.e. ${ARCH:="i386"}).
 : ${ARCH:="$(dpkg --print-architecture)"}
 
-if [ "$ARCH" == "armel" ] && [ "$(dpkg --print-architecture)" != "armel" ]; then
-    DEBOOTSTRAP="qemu-debootstrap"
-    UBUNTU_MIRROR="ports.ubuntu.com"
-fi
-if [ "$ARCH" == "armhf" ] && [ "$(dpkg --print-architecture)" != "armhf" ]; then
-    DEBOOTSTRAP="qemu-debootstrap"
-    UBUNTU_MIRROR="ports.ubuntu.com"
-fi
-
 NAME="$DIST"
 if [ -n "${ARCH}" ]; then
     NAME="$NAME-$ARCH"
     DEBOOTSTRAPOPTS=("--arch" "$ARCH" "${DEBOOTSTRAPOPTS[@]}")
 fi
+
+COMPRESSPROG=pigz
 BASETGZ="/home/aleax/pbuilder/$NAME-base.tgz"
 # Optionally, set BASEPATH (and not BASETGZ) if using cowbuilder
 BASEPATH="/home/aleax/pbuilder/$NAME/base.cow/"
@@ -70,13 +66,28 @@ BUILDRESULT="/home/aleax/pbuilder/$NAME/result/"
 APTCACHE="/home/aleax/pbuilder/$NAME/aptcache/"
 BUILDPLACE="/home/aleax/pbuilder/build/"
 
+if [ "$ARCH" == "armel" ] && [ "$(dpkg --print-architecture)" != "armel" ]; then
+    DEBOOTSTRAP="qemu-debootstrap"
+fi
+
+if [ "$ARCH" == "armhf" ] && [ "$(dpkg --print-architecture)" != "armhf" ]; then
+    DEBOOTSTRAP="qemu-debootstrap"
+fi
+
 if $(echo ${DEBIAN_SUITES[@]} | grep -q $DIST); then
     # Debian configuration
     MIRRORSITE="http://$DEBIAN_MIRROR/debian/"
     COMPONENTS="main contrib non-free"
+elif $(echo ${DEBIAN_SUITES_ARCHIVE[@]} | grep -q $DIST); then
+    # Debian configuration
+    MIRRORSITE="http://$DEBIAN_MIRROR_ARCHIVE/debian/"
+    COMPONENTS="main contrib non-free"
 elif $(echo ${UBUNTU_SUITES[@]} | grep -q $DIST); then
     # Ubuntu configuration
-    MIRRORSITE="http://$UBUNTU_MIRROR/"
+    MIRRORSITE="http://$UBUNTU_MIRROR/ubuntu/"
+    if [ "$ARCH" == "armhf" ] ; then
+        MIRRORSITE="http://ports.ubuntu.com/"
+    fi
     COMPONENTS="main restricted universe multiverse"
 else
     echo "Unknown distribution: $DIST"
@@ -88,10 +99,10 @@ HOOKDIR="/home/aleax/pbuilder/hook.d/"
 #using ccache
 
 export CCACHE_DIR="/var/cache/pbuilder/ccache"
-#export PATH="/usr/lib/ccache:${PATH}"
+export PATH="/usr/lib/ccache:${PATH}"
 
-EXTRAPACKAGES=ccache
+EXTRAPACKAGES="ccache-" #ccache need "-" (minus) for hold 
 BINDMOUNTS="${CCACHE_DIR}"
 
-BINDMOUNTS="${BINDMOUNTS} /var/cache/pbuilder/repos/"
+BINDMOUNTS="${BINDMOUNTS} /home/aleax/Dropbox/Public/repos/"
 
