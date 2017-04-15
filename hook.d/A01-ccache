@@ -1,0 +1,11 @@
+#!/bin/sh
+set -x
+
+apt-get install ccache
+/usr/sbin/update-ccache-symlinks
+echo $PATH
+echo $CCACHE_DIR
+ls -l /usr/lib/ccache
+
+set +x
+exit 0
