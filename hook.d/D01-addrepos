@@ -438,7 +438,7 @@ EOF
     if  $(echo ${ADDREPOS} | tr ' ' '\n' | grep -qs '^samba46-xenial$')
     then
         echo "Adding samba46-xenial repository..."
-        echo "deb file:///var/cache/pbuilder/repos/ samba46-xenial main" \
+        echo "deb file:///home/aleax/Dropbox/Public/repos/ samba46-xenial main" \
             > "${SOURCESLISTD}/samba46-xenial.list"
         add-apt-key C3D1D5BB
     fi
